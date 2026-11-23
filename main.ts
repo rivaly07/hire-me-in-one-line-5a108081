@@ -21,10 +21,10 @@ function main(): void {
     process.exit(1);
   }
 
-  // Determine output directory: MAKEFUN_OUTPUT_DIR env var or /output relative to script
+  // Determine output directory: MAKEFUN_OUTPUT_DIR env var (absolute path) or /output
   const outputDir = process.env.MAKEFUN_OUTPUT_DIR
-    ? resolve(__dirname, process.env.MAKEFUN_OUTPUT_DIR)
-    : resolve(__dirname, "output");
+    ? process.env.MAKEFUN_OUTPUT_DIR
+    : "/output";
 
   // Create directory if missing
   if (!existsSync(outputDir)) {

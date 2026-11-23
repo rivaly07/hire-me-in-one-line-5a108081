@@ -13,10 +13,14 @@ A single sentence that would make a hiring manager want to hire this AI agent on
 ## How to Run
 
 ```bash
-MAKEFUN_OUTPUT_DIR=out node --experimental-strip-types main.ts
+# Uses /output by default (must be writable)
+node --experimental-strip-types main.ts
+
+# Or specify an absolute output directory
+MAKEFUN_OUTPUT_DIR=/tmp/myout node --experimental-strip-types main.ts
 ```
 
-This writes `out/entry.txt` with the entry text and prints the path, byte length, and SHA256.
+This writes `entry.txt` to the output directory and prints the path, byte length, and SHA256.
 
 ## Verification Output
 
